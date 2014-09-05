@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/activity_search_validation_message_view"
+        style="@style/validation_view_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_view_margin_space"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        tools:context="com.adilmughal.demo.yow.searchd.traditional.SearchActivity" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_search_title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_view_margin_space" />
+
+        <EditText
+            android:id="@+id/activity_search_keywords_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/activity_search_keywords_hint" >
+
+            <requestFocus />
+        </EditText>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_view_margin_space" />
+
+        <CheckBox
+            android:id="@+id/activity_search_location_include_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_search_include_location" />
+
+        <EditText
+            android:id="@+id/activity_search_location_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/activity_search_location_hint"
+            android:visibility="gone" >
+        </EditText>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_view_margin_space" />
+
+        <Button
+            android:id="@+id/activity_search_submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_search_submit_button_text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_view_margin_space" />
+
+        <ListView
+            android:id="@+id/activity_search_result_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </ListView>
+
+        <ProgressBar
+            android:id="@+id/activity_search_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>
