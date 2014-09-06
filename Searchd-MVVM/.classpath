@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="libs/robobinding-0.8.5-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="libs/robobinding-0.8.6-20140905.094156-9-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

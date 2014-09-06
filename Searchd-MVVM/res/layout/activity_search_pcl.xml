@@ -1,6 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:bind="http://robobinding.org/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -8,25 +7,24 @@
         android:id="@+id/activity_search_validation_message_view"
         style="@style/validation_view_style"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:visibility="invisible"
-        bind:text="{validationMessage}"
-        bind:visibility="{inValid}" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_view_margin_space"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/activity_search_title"
+            android:text="@string/activity_search_pcl_title"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Space
@@ -39,8 +37,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:hint="@string/activity_search_keywords_hint"
-            bind:text="${keywords}" >
+            android:hint="@string/activity_search_keywords_hint" >
 
             <requestFocus />
         </EditText>
@@ -53,8 +50,7 @@
             android:id="@+id/activity_search_location_include_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/activity_search_include_location"
-            bind:onCheckedChange="onLocationIncluded" />
+            android:text="@string/activity_search_include_location" />
 
         <EditText
             android:id="@+id/activity_search_location_edittext"
@@ -63,8 +59,7 @@
             android:ems="10"
             android:inputType="number"
             android:hint="@string/activity_search_location_hint"
-            bind:text="${location}"
-            bind:visibility="{locationIncluded}" >
+            android:visibility="gone" >
         </EditText>
 
         <Space
@@ -75,8 +70,7 @@
             android:id="@+id/activity_search_submit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/activity_search_submit_button_text"
-            bind:onClick="onSubmit" />
+            android:text="@string/activity_search_submit_button_text" />
 
         <Space
             android:layout_width="match_parent"
@@ -85,10 +79,7 @@
         <ListView
             android:id="@+id/activity_search_result_list_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            bind:itemLayout="@android:layout/simple_list_item_1"
-            bind:itemMapping="[text1.text:{value}]"
-            bind:source="{resultList}" >
+            android:layout_height="wrap_content">
         </ListView>
 
         <ProgressBar
@@ -97,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            bind:visibility="{searchInProgress}" />
+            android:visibility="gone" />
     </LinearLayout>
 
 </RelativeLayout>

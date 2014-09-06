@@ -4,6 +4,9 @@
     <string name="app_name">Searchd-MVVM</string>
      <string name="action_settings">Settings</string>
     <string name="activity_search_title">Search Items to Buy</string>
+    
+    <string name="activity_search_pcl_title">PCL - Search Items</string>
+    
     <string name="activity_search_keywords_hint">Keywords</string>
     <string name="activity_search_include_location">Include Location</string>
     <string name="activity_search_location_hint">Location (4 digit Postcode)</string>

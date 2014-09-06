@@ -9,8 +9,8 @@ import org.robobinding.widget.view.ClickEvent;
 import com.adilmughal.demo.yow.mvvm.searchd.contract.SearchRepository;
 import com.adilmughal.demo.yow.mvvm.searchd.repository.DummySearchRepository;
 
-public class SearchViewModel extends ViewModelBase {
-	
+public class SearchPclViewModel extends ViewModelPclBase {
+
 	public static final String PROPERTY_IN_VALID = "inValid";
 	public static final String PROPERTY_KEYWORDS = "keywords";
 	public static final String PROPERTY_LOCATION = "location";
@@ -18,11 +18,11 @@ public class SearchViewModel extends ViewModelBase {
 	public static final String PROPERTY_RESULT_LIST = "resultList";
 	public static final String PROPERTY_SEARCH_IN_PROGRESS = "searchInProgress";
 	public static final String PROPERTY_VALIDATION_MESSAGE = "validationMessage";
-	
+
 	// Validation
 	private boolean invalid;
 	private String validationMessage;
-	
+
 	// Data
 	private String keywords;
 	private String location;
@@ -32,7 +32,13 @@ public class SearchViewModel extends ViewModelBase {
 
 	// State
 	private boolean searchInProgress;
-	
+
+	public SearchPclViewModel() {
+		this.keywords = "";
+		this.location = "";
+		this.locationIncluded = false;
+	}
+
 	// Getters and Setters
 	public String getKeywords() {
 		return keywords;
@@ -82,24 +88,24 @@ public class SearchViewModel extends ViewModelBase {
 		this.locationIncluded = locationIncluded;
 		super.notifyPropertyChanged(PROPERTY_LOCATION_INCLUDED);
 	}
-	
+
 	public void setResultList(List<String> resultList) {
 		this.resultList = resultList;
 		super.notifyPropertyChanged(PROPERTY_RESULT_LIST);
 	}
-	
+
 	public void setSearchInProgress(boolean searchInProgress) {
 		this.searchInProgress = searchInProgress;
 		super.notifyPropertyChanged(PROPERTY_SEARCH_IN_PROGRESS);
 	}
-	
+
 	public void setValidationMessage(String validationMessage) {
 		this.validationMessage = validationMessage;
 		super.notifyPropertyChanged(PROPERTY_VALIDATION_MESSAGE);
 	}
-	
+
 	// Commands/Methods
-	
+
 	public void onLocationIncluded(CheckedChangeEvent event) {
 		this.setLocationIncluded(event.isChecked());
 	}
@@ -131,8 +137,7 @@ public class SearchViewModel extends ViewModelBase {
 
 		if (this.getKeywords().length() <= 2) {
 			isValid = false;
-			errorMessageBuilder
-					.append("- Try entering more characters as keywords!");
+			errorMessageBuilder.append("- Try entering more characters as keywords!");
 		}
 
 		if (this.isLocationIncluded()) {
@@ -142,13 +147,12 @@ public class SearchViewModel extends ViewModelBase {
 				if (errorMessageBuilder.length() > 0)
 					errorMessageBuilder.append("\n");
 
-				errorMessageBuilder
-						.append("- Invalid location, enter 4 digit postcode!");
+				errorMessageBuilder.append("- Invalid location, enter 4 digit postcode!");
 			}
 		}
 
-		this.setValidationMessage(errorMessageBuilder.toString());
 		this.setInValid(!isValid);
+		this.setValidationMessage(errorMessageBuilder.toString());
 
 		return isValid;
 	}
